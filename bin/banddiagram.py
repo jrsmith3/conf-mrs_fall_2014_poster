@@ -1,10 +1,32 @@
 # -*- coding: utf-8 -*-
 import numpy as np
+import inspect
+import os
 import matplotlib.pyplot as plt
 
 def fermi(energy, temp, fermi_level = 0,):
     denom = 1 + np.exp( (energy - fermi_level)/(temp) )
     return 1.0/denom
+
+def target_fig_fqfn(script_fqfn, target_rel_dir, target_filename_ext):
+    """
+    Fully-qualified filename of target figure
+
+    :param str script_fqfn: Fully-qualified filename of plotting script.
+    :param str target_rel_dir: Target directory for figure relative to plotting script.
+    :param str target_filename_ext: Extension of figure.
+    """
+    script_dir_fqpn = os.path.dirname(script_fqfn)
+    script_filename = os.path.basename(script_fqfn)
+    script_filename_root = os.path.splitext(script_filename)[0]
+
+    target_filename = ".".join((script_filename_root, target_filename_ext))
+
+    target_dir_join = os.path.join(script_dir_fqpn, target_rel_dir, target_filename)
+    target_dir_fqpn = os.path.abspath(target_dir_join)
+
+    return target_dir_fqpn
+
 
 class BandDiagram(object):
     """
