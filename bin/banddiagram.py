@@ -66,7 +66,7 @@ class BandDiagram(object):
         fig = plt.figure(figsize=(fig_height,fig_width))
 
         # Fermi distribution
-        plt.plot(-f, energy, "r", linewidth = 2.0)
+        plt.plot(-f, energy, "r", linewidth = 5.0)
 
         # Band structure and Fermi energy
         if not self.metal:
