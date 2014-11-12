@@ -93,7 +93,7 @@ input_params = {
 
 abscissae = np.linspace(300,700, 50) * units.K
 
-bete_data = f50(input_params, abscissae, "temp", bete.Bete_Electrode.calc_richardson_current_density)
+bete_data = f50(input_params, abscissae, "temp", bete.Bete_Electrode.calc_bete_current_density)
 conv_data = f50(input_params, abscissae, "temp", electrode.SC_Electrode.calc_richardson_current_density)
 
 fig = bete_data.plot()
