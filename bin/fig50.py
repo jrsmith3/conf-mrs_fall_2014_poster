@@ -60,11 +60,12 @@ target_fqfn = target_fig_fqfn(script_fqfn, target_rel_dir, target_filename_ext)
 #     }
 
 class f50(datac.Datac):
-    def plot(self, **kwargs):
+    def plot(self, fig = None, **kwargs):
         """
         Plot figure
         """
-        fig = plt.figure(**kwargs)
+        if not fig:
+            fig = plt.figure(**kwargs)
         plt.semilogy(self.abscissae, self.ordinates.to("A/cm2"))
 
         plt.ylabel("Output current density [$Acm^{-2}$]")
@@ -92,5 +93,11 @@ input_params = {
 
 abscissae = np.linspace(300,700, 50) * units.K
 
-data = f50(input_params, abscissae, "temp", electrode.SC_Electrode.calc_richardson_current_density)
-data.show()
+bete_data = f50(input_params, abscissae, "temp", bete.Bete_Electrode.calc_richardson_current_density)
+conv_data = f50(input_params, abscissae, "temp", electrode.SC_Electrode.calc_richardson_current_density)
+
+fig = bete_data.plot()
+conv_data.plot(fig = fig)
+plt.legend(("bete", "Control"), loc = "lower right")
+
+plt.show()
