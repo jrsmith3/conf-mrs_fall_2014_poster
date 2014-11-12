@@ -2,6 +2,7 @@
 import os
 import inspect
 from banddiagram import BandDiagram, target_fig_fqfn
+from params import band_diagram
 
 # Location of the target directory relative to the directory in which this script is located.
 target_rel_dir = "../build"
@@ -12,4 +13,4 @@ target_fqfn = target_fig_fqfn(script_fqfn, target_rel_dir, target_filename_ext)
 bd = BandDiagram(temp = 1., 
                  fermi_level = 1.,
                  quasi_fermi_level = 3.)
-bd.savefig(target_fqfn)
+bd.savefig(target_fqfn, band_diagram["fig_height"], band_diagram["fig_width"])
