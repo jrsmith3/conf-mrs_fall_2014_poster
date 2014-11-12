@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 import inspect
-from banddiagram import BandDiagram
+from banddiagram import BandDiagram, target_fig_fqfn
 from params import band_diagram
 
 # Location of the target directory relative to the directory in which this script is located.
