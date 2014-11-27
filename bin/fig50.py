@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Calculates and plots both the beta-enhanced thermoelectron emission current density and the standard thermoelectron emission current density from an electrode held at an elevated temperature.
+This script calculates the beta enhanced thermoelectron current from p-doped Si at various values of emission barrier. It plots this family of curves on the same axis.
 """
 
 import os
