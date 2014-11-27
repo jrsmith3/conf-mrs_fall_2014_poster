@@ -69,7 +69,7 @@ input_params = {
     "bandgap": units.Quantity(1.12,"eV"),
 
     "beta_flux": 1e10,
-    "beta_energy": 20000,
+    "beta_energy": 2e4,
     "ehp_efficiency": 0.1,
 }
 
