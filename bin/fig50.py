@@ -50,13 +50,33 @@ input_params = {
     "ehp_efficiency": 0.1,
 }
 
-abscissae = np.linspace(300, 1000, 10) * units.K
+# Calculate data
+# ==============
+abscissae = np.linspace(300, 800, 10) * units.K
+barriers = np.linspace(1.4, 2.4, 6) * units.eV
 
-bete_data = f50(input_params, abscissae, "temp", tec.electrode.BETE.calc_thermoelectron_current_density)
-conv_data = f50(input_params, abscissae, "temp", tec.electrode.SC.calc_thermoelectron_current_density)
+bete_electrodes = []
 
-fig = bete_data.plot()
-conv_data.plot(fig = fig)
-plt.legend(("bete", "Control"), loc = "lower right")
+for barrier in barriers:
+    input_params["barrier"] = barrier
 
-plt.show()
+    bete_electrode = f50(input_params, abscissae, "temp", tec.electrode.BETE.calc_thermoelectron_current_density)
+
+    bete_electrodes.append(bete_electrode)
+
+sc_electrode = f50(input_params, abscissae, "temp", tec.electrode.SC.calc_thermoelectron_current_density)
+
+
+# Plot data
+# =========
+fig = bete_electrodes[0].plot()
+
+for bete_electrode in bete_electrodes[1:]:
+    bete_electrode.plot(fig = fig)
+
+# sc_electrode.plot(fig = fig)
+
+plt.legend(barriers, loc = "lower right")
+plt.title("J vs. T for several $\phi$")
+# plt.show()
+plt.savefig(target_fqfn)
