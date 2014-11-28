@@ -12,3 +12,8 @@ fig_width = units.Quantity(97.015, "mm")
 
 band_diagram = {"fig_height": fig_height.to("inch").value, 
                 "fig_width": fig_width.to("inch").value,}
+
+
+# Dimensions for bete plots
+# bete_figsize = (width, height)
+bete_figsize = (7, 6)

@@ -11,6 +11,7 @@ from astropy import units, constants
 import tec
 import datac
 from banddiagram import target_fig_fqfn
+from params import bete_figsize
 
 # Location of the target directory relative to the directory in which this script is located.
 target_rel_dir = "../build"
@@ -69,7 +70,7 @@ sc_electrode = f50(input_params, abscissae, "temp", tec.electrode.SC.calc_thermo
 
 # Plot data
 # =========
-fig = bete_electrodes[0].plot()
+fig = bete_electrodes[0].plot(None, figsize = bete_figsize)
 
 for bete_electrode in bete_electrodes[1:]:
     bete_electrode.plot(fig = fig)
