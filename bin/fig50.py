@@ -35,7 +35,7 @@ class f50(datac.Datac):
 input_params = {
     "temp": 300.,
     "barrier": 2.4,
-    "richardson": 100,
+    "richardson": 10,
 
     # Parameters for Si
     # Schwede et.al. \cite{10.1038/nmat2814}
