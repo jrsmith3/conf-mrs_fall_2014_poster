@@ -33,7 +33,7 @@ class BandDiagram(object):
     Generates a band diagram for plotting.
     """
 
-    def __init__(self, temp = 1., fermi_level = 1., quasi_fermi_level = None, vbm = 0., cbm = 4., metal = False):
+    def __init__(self, temp = 1., fermi_level = 1., quasi_fermi_level = None, vbm = 0., cbm = 4., evac = 6, metal = False):
         self.n_points = 1000
 
         self.temp = temp
@@ -41,6 +41,7 @@ class BandDiagram(object):
         self.quasi_fermi_level = quasi_fermi_level
         self.vbm = vbm
         self.cbm = cbm
+        self.evac = evac
         self.metal = metal
 
     def plotfig(self, fig_height = 3, fig_width = 3):
@@ -78,7 +79,7 @@ class BandDiagram(object):
             plt.plot(-dist_width, quasi_fermi_energy, "k-.",)
 
         # E_vac
-        plt.plot([0, -0.05], [6, 6], "k",)
+        plt.plot([0, -0.05], [self.evac, self.evac], "k",)
 
         # Surface
         plt.plot([0, 0], [y_lo, y_hi], "k",)
