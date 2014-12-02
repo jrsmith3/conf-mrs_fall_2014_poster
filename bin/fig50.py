@@ -46,14 +46,14 @@ input_params = {
     "acceptor_ionization_energy": units.Quantity(0.044, "eV"),
     "bandgap": units.Quantity(1.12,"eV"),
 
-    "beta_flux": 1e10,
+    "beta_flux": 1e8,
     "beta_energy": 2e4,
     "ehp_efficiency": 0.1,
 }
 
 # Calculate data
 # ==============
-abscissae = np.linspace(300, 800, 10) * units.K
+abscissae = np.linspace(300, 600, 10) * units.K
 barriers = np.linspace(1.4, 2.4, 6) * units.eV
 
 bete_electrodes = []
@@ -78,6 +78,6 @@ for bete_electrode in bete_electrodes[1:]:
 # sc_electrode.plot(fig = fig)
 
 plt.legend(barriers, loc = "lower right")
-plt.title("J vs. T for several $\phi$")
+plt.title("Adjust material work function $\phi$")
 # plt.show()
 plt.savefig(target_fqfn)

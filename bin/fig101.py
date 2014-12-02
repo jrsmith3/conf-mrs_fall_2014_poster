@@ -46,15 +46,15 @@ input_params = {
     "acceptor_ionization_energy": units.Quantity(0.044, "eV"),
     "bandgap": units.Quantity(1.12,"eV"),
 
-    "beta_flux": 1e10,
+    "beta_flux": 1e8,
     "beta_energy": 2e4,
     "ehp_efficiency": 0.1,
 }
 
 # Calculate data
 # ==============
-abscissae = np.linspace(300, 800, 10) * units.K
-beta_fluxes = np.logspace(8, 12, 3) / (units.s * units.cm**2)
+abscissae = np.linspace(300, 600, 10) * units.K
+beta_fluxes = np.logspace(8, 10, 3) / (units.s * units.cm**2)
 
 bete_electrodes = []
 
@@ -77,8 +77,8 @@ for bete_electrode in bete_electrodes[1:]:
 
 sc_electrode.plot(fig = fig)
 
-labels = [beta_flux for beta_flux in beta_fluxes] + ["control"]
+labels = ["{0:.3g}".format(beta_flux) for beta_flux in beta_fluxes] + ["control"]
 plt.legend(labels, loc = "lower right")
-plt.title("J vs. T for several $\Phi$")
+plt.title("Adjust beta flux, $\Phi$")
 # plt.show()
 plt.savefig(target_fqfn)
