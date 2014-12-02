@@ -665,6 +665,10 @@
             <para PARENT="Default Paragraph Style"/>
             <ITEXT CH="At lower temperatures, the output current density of BETE dwarfs the plain thermoelectron emission current density from the same material without beta irradiation. As the temperature increases, the control thermoelectron current approaches the value of the beta-enhanced thermoelectron current because at higher temperatures, the Fermi energy of the semiconductor material approaches the intrinsic Fermi energy of the material and the advantage due to beta-enhanced EHP generation diminishes."/>
             <para PARENT="Default Paragraph Style"/>
+            <ITEXT CH="Future work"/>
+            <para PARENT="Headings"/>
+            <ITEXT CH="The model presented here ignores temperature variation of the work function of the material. In addition, this model does not account for a material featuring negative electron affinity."/>
+            <para PARENT="Default Paragraph Style"/>
             <ITEXT CH="Acknowledgements"/>
             <para PARENT="Headings"/>
             <ITEXT CH="Research was sponsored by the Army Research Laboratory and was accomplished under Cooperative Agreement Number W911NF-12-2-0019. The views and conclusions contained in this document are those of the authors and should not be interpreted as representing the official policies, either expressed or implied, of the Army Research Laboratory or the U.S. Government. The U.S. Government is authorized to reproduce and distribute reprints for Government purposes notwithstanding any copyright notation herein."/>
